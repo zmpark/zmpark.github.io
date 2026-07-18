@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Personal academic website of Zhengmin Piao, a statistics undergraduate at the University of Science and Technology of China."
+  >
+
+  <title>Zhengmin Piao | Statistics & Optimization</title>
+
+  <style>
+    :root {
+      --background: #f7f9fc;
+      --surface: #ffffff;
+      --primary: #1f4f82;
+      --primary-dark: #173b61;
+      --text: #172033;
+      --muted: #64748b;
+      --border: #dce4ee;
+      --soft-blue: #edf4fb;
+      --shadow: 0 12px 32px rgba(31, 79, 130, 0.10);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    section {
+      scroll-margin-top: 90px;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-content {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      color: var(--primary);
+      font-size: 1.15rem;
+      font-weight: 750;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(84, 150, 220, 0.18),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          #f7f9fc 0%,
+          #eef5fc 100%
+        );
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 0.75fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--primary);
+      font-size: 0.95rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+    }
+
+    .subtitle {
+      margin: 22px 0 0;
+      color: var(--primary);
+      font-size: clamp(1.15rem, 2.3vw, 1.5rem);
+      font-weight: 650;
+    }
+
+    .hero-description {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 11px 21px;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .button-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .button-secondary:hover {
+      background: var(--soft-blue);
+    }
+
+    .profile-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-photo {
+      width: min(320px, 75vw);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
+      border: 9px solid rgba(255, 255, 255, 0.82);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Shared sections */
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-white {
+      background: var(--surface);
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    .section-label {
+      margin: 0 0 8px;
+      color: var(--primary);
+      font-size: 0.86rem;
+      font-weight: 750;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.2;
+    }
+
+    .section-intro {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    /* About */
+
+    .about-text {
+      max-width: 860px;
+      color: #334155;
+      font-size: 1.07rem;
+    }
+
+    .about-text p {
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+
+    /* Cards */
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(30, 58, 95, 0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.23rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card-meta {
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* Timeline */
+
+    .timeline {
+      display: grid;
+      gap: 24px;
+    }
+
+    .timeline-item {
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--primary);
+      border-radius: 14px;
+    }
+
+    .timeline-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 1.22rem;
+    }
+
+    .timeline-organization {
+      margin: 6px 0 0;
+      color: var(--primary);
+      font-weight: 650;
+    }
+
+    .timeline-date {
+      color: var(--muted);
+      font-size: 0.94rem;
+      white-space: nowrap;
+    }
+
+    .timeline-item ul {
+      margin: 18px 0 0;
+      padding-left: 21px;
+      color: #475569;
+    }
+
+    .timeline-item li + li {
+      margin-top: 8px;
+    }
+
+    /* Honors */
+
+    .honors-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .honor-item {
+      display: grid;
+      grid-template-columns: 85px 1fr;
+      gap: 20px;
+      padding: 18px 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .honor-year {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    /* Skills */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .skill-group {
+      padding: 24px;
+      background: var(--soft-blue);
+      border-radius: 14px;
+    }
+
+    .skill-group h3 {
+      margin: 0 0 9px;
+      color: var(--primary-dark);
+    }
+
+    .skill-group p {
+      margin: 0;
+      color: #52647a;
+    }
+
+    /* Contact */
+
+    .contact-box {
+      padding: 40px;
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-radius: 20px;
+    }
+
+    .contact-box h2 {
+      margin-top: 0;
+      font-size: 2rem;
+    }
+
+    .contact-box p {
+      color: #d8e6f4;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .contact-link {
+      padding: 11px 17px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 9px;
+      color: #ffffff;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .contact-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Footer */
+
+    footer {
+      padding: 30px 0;
+      background: #0f2740;
+      color: #b8c7d8;
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    /* Responsive design */
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .profile-wrapper {
+        grid-row: 1;
+      }
+
+      .profile-photo {
+        width: min(260px, 68vw);
+      }
+
+      .card-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .section {
+        padding: 68px 0;
+      }
+
+      .hero {
+        padding: 54px 0 70px;
+      }
+
+      .timeline-top {
+        display: block;
+      }
+
+      .timeline-date {
+        display: block;
+        margin-top: 8px;
+      }
+
+      .honor-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .contact-box {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a class="logo" href="#home">
+        Zhengmin Piao
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#honors">Honors</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Home -->
+
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+          <p class="eyebrow">
+            Statistics · Optimization · Quant
+          </p>
+
+          <h1>Zhengmin Piao</h1>
+
+          <p class="subtitle">
+            B.S. Student in Statistics at USTC
+          </p>
+
+          <p class="hero-description">
+            Interested in robust optimization, stochastic modeling,
+            decision-making under uncertainty, and  quantitative finance.
+          </p>
+
+          <p class="personal-quote">
+            Curiosity makes every uncertain path worth exploring.
+          </p>
+          
+          <div class="hero-buttons">
+            <a class="button button-primary" href="#research">
+              View Research
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="Zhengmin_Piao_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download CV
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="https://github.com/zmpark"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="profile-wrapper">
+          <img
+            class="profile-photo"
+            src="profile.jpg"
+            alt="Portrait of Zhengmin Piao"
+          >
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About -->
+
+    <section class="section section-white" id="about">
+      <div class="container">
+
+        <div class="section-header">
+          <p class="section-label">About</p>
+          <h2 class="section-title">About Me</h2>
+        </div>
+
+        <div class="about-text">
+          <p>
+            I am an undergraduate student in Statistics with a minor
+            in Finance at the University of Science and Technology of China(USTC) 
+            in Hefei, China. I expect to graduate in June 2027.
+          </p>
+
+          <p>
+            My academic interests lie at the intersection of robust optimization, stochastic modeling,
+            decision-making under uncertainty, and  quantitative finance. I am particularly interested in developing
+            statistical and computational methods for decisions under
+            uncertainty.
+          </p>
+
+          <p>
+      
+  My current experience combines statistical modeling,
+  Bayesian inference, Monte Carlo simulation, and mathematical
+  optimization, with applications to panel data, spatial coverage
+  systems, robust planning, and quantitative investment analysis.
+
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Research Interests -->
+
+    <section class="section" id="research">
+      <div class="container">
+
+        <div class="section-header">
+          <p class="section-label">Research</p>
+
+          <h2 class="section-title">
+            Research Interests
+          </h2>
+
+          <p class="section-intro">
+            I am interested in statistical and optimization methods
+            for complex decision problems involving uncertainty,
+            limited data, and operational constraints.
+          </p>
+        </div>
+
+        <div class="card-grid">
+
+          <article class="card">
+  <h3>Statistical Inference</h3>
+  <p>
+    Small-sample inference, Bayesian methods,
+    uncertainty quantification, regularized estimation,
+    and simulation-based evaluation, with an emphasis
+    on reliable conclusions from limited or complex data.
+  </p>
+</article>
+
+<article class="card">
+  <h3>Stochastic Modeling</h3>
+  <p>
+    Probabilistic modeling and simulation for systems
+    involving random behavior, rare events, dynamic uncertainty,
+    heterogeneous outcomes, and uncertainty propagation.
+  </p>
+</article>
+
+<article class="card">
+  <h3>Optimization under Uncertainty</h3>
+  <p>
+    Robust, distributionally robust, and stochastic optimization
+    methods for routing, resource allocation, risk-aware planning,
+    and other constrained decision problems.
+  </p>
+</article>
+
+<article class="card">
+  <h3>Data-Driven Decision-Making</h3>
+  <p>
+    Integration of statistical learning, predictive modeling,
+    and optimization to support decisions in industrial systems,
+    urban systems, and quantitative finance.
+  </p>
+</article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+
+    <section class="section section-white" id="experience">
+      <div class="container">
+
+        <div class="section-header">
+          <p class="section-label">Experience</p>
+          <h2 class="section-title">Research & Professional Experience</h2>
+        </div>
+
+        <div class="timeline">
+
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <div>
+                <h3>Research Assistant</h3>
+
+                <p class="timeline-organization">
+                  Anhui Provincial Major Social Science Project
+                </p>
+
+                <p class="timeline-organization">
+                  Supervisor: Prof. Jiaquan Yao
+                </p>
+              </div>
+
+              <span class="timeline-date">
+                Sep. 2025 – Dec. 2025
+              </span>
+            </div>
+
+            <ul>
+              <li>
+                Collected and analyzed multi-year firm-level panel
+                datasets across China, the United States, Europe,
+                and East Asia.
+              </li>
+
+              <li>
+                Applied fixed-effects and random-effects panel regression,
+                principal component analysis, and ridge regression.
+              </li>
+
+              <li>
+                Studied the relationship between patient capital,
+                R&amp;D investment, and innovation outcomes.
+              </li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <div>
+                <h3>Data Analytics and Optimization Intern</h3>
+
+                <p class="timeline-organization">
+                  Organization Department,
+                  Yanbian Prefecture Government
+                </p>
+              </div>
+
+              <span class="timeline-date">
+                Jul. 2025 – Aug. 2025
+              </span>
+            </div>
+
+            <ul>
+              <li>
+                Processed multi-year incident datasets involving fires,
+                traffic accidents, structural collapses, and floods.
+              </li>
+
+              <li>
+                Developed surveillance-camera placement models using
+                GIS-based visibility analysis, spatial coverage modeling,
+                and integer programming.
+              </li>
+
+              <li>
+                Incorporated camera reliability and terrain constraints
+                into a robust optimization framework.
+              </li>
+
+              <li>
+                The final evaluation achieved an approximate
+                40% reduction in system cost.
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+
+    <section class="section" id="projects">
+      <div class="container">
+
+        <div class="section-header">
+          <p class="section-label">Projects</p>
+          <h2 class="section-title">Selected Research Projects</h2>
+        </div>
+
+        <div class="card-grid">
+
+          <article class="card">
+            <p class="card-meta">
+              Independent Course Research · 2026
+            </p>
+
+            <h3>
+              Small-Sample Confidence Interval Comparison
+              for Rare-Event Probabilities
+            </h3>
+
+            <p>
+              Compared classical and Bayesian interval estimation
+              methods under small-sample and class-imbalance settings.
+              Evaluated Clopper–Pearson, Wilson, Wald, and Bayesian
+              intervals through Monte Carlo simulation in R.
+            </p>
+          </article>
+
+          <article class="card">
+            <p class="card-meta">
+              Mathematical Contest in Modeling · 2026
+            </p>
+
+            <h3>
+              Counterfactual Analysis of Voting Rules
+              Using Constrained Bayesian Inference
+            </h3>
+
+            <p>
+              Developed a Bayesian framework with truncated Dirichlet
+              priors and counterfactual simulations to study voting-rule
+              sensitivity, latent voting distributions, and uncertainty
+              propagation.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaching -->
+
+    <section class="section section-white" id="teaching">
+      <div class="container">
+
+        <div class="section-header">
+          <p class="section-label">Teaching</p>
+          <h2 class="section-title">Teaching Experience</h2>
+        </div>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <div>
+              <h3>
+                Teaching Assistant
+              </h3>
+
+              <p class="timeline-organization">
+                Probability and Mathematical Statistics
+              </p>
+
+              <p class="timeline-organization">
+                University of Science and Technology of China
+              </p>
+            </div>
+
+            <span class="timeline-date">
+              Fall 2026
+            </span>
+          </div>
+
+          <ul>
+            <li>
+              Supporting undergraduate instruction in probability
+              theory and mathematical statistics.
+            </li>
+
+            <li>
+              Teaching materials and course resources will be added
+              after the semester begins.
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Honors -->
+
+    <section class="section" id="honors">
+      <div class="container">
+
+        <div class="section-header">
+          <p class="section-label">Honors</p>
+          <h2 class="section-title">Honors</h2>
+        </div>
+
+        <div class="honors-list">
+
+          <div class="honor-item">
+            <div class="honor-year">2026</div>
+
+            <div>
+              Meritorious Winner,
+              Mathematical Contest in Modeling,
+              Problem C
+            </div>
+          </div>
+
+          <div class="honor-item">
+            <div class="honor-year">2025</div>
+
+            <div>
+              First Prize, Anhui Division,
+              China Undergraduate Mathematical Contest in Modeling
+            </div>
+          </div>
+
+          <div class="honor-item">
+            <div class="honor-year">2024</div>
+
+            <div>
+              Third Prize, Anhui Division,
+              National Undergraduate Mathematics Competition
+            </div>
+          </div>
+<div class="honor-item">
+  <div class="honor-year">2025</div>
+
+  <div>
+    Outstanding Student Scholarship, Silver Award,
+    University of Science and Technology of China
+  </div>
+</div>
+          <div class="honor-item">
+  <div class="honor-year">2024</div>
+
+  <div>
+    Zhang Zongzhi Scholarship,
+    University of Science and Technology of China
+  </div>
+</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+
+<section class="section section-white" id="skills">
+  <div class="container">
+
+    <div class="section-header">
+      <p class="section-label">Skills</p>
+
+      <h2 class="section-title">
+        Technical Skills
+      </h2>
+
+      <p class="section-intro">
+        Programming languages, research software,
+        and communication skills used in my academic
+        and project work.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <h3>Programming</h3>
+
+        <p>
+          Python, R, SQL, Julia, and C
+        </p>
+      </div>
+
+      <div class="skill-group">
+        <h3>Software &amp; Tools</h3>
+
+        <p>
+          Gurobi, CPLEX, Stata, LaTeX,
+          GitHub, and GIS-based analysis
+        </p>
+      </div>
+
+      <div class="skill-group">
+        <h3>Languages</h3>
+
+        <p>
+          Chinese (native), Korean (native-level),
+          and English (fluent)
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+    <!-- Contact -->
+
+    <section class="section" id="contact">
+      <div class="container">
+
+        <div class="contact-box">
+          <h2>Contact</h2>
+
+          <p>
+            I am interested in research opportunities and academic
+            collaboration in statistics, optimization, and
+            data-driven decision-making.
+          </p>
+
+          <p>
+            Hefei, China
+          </p>
+
+          <div class="contact-links">
+
+            <a
+              class="contact-link"
+              href="mailto:zmpark2k2000@gmail.com"
+            >
+              Email
+            </a>
+
+            <a
+              class="contact-link"
+              href="https://github.com/zmpark"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Profile
+            </a>
+
+            <a
+              class="contact-link"
+              href="Zhengmin_Piao_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View CV
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Zhengmin Piao. Built with GitHub Pages.
+    </div>
+  </footer>
+
+</body>
+</html>
