@@ -321,65 +321,34 @@
     }
 
     .hero::after {
-      content: "";
+      content: none;
+    }
+
+    /* Recognizable fairytale castle at the bottom of the hero */
+
+    .castle-lineart {
       position: absolute;
-      left: -3%;
-      right: -3%;
-      bottom: -1px;
-      height: 145px;
-      background: linear-gradient(
-        180deg,
-        rgba(137, 112, 179, 0.02),
-        rgba(105, 84, 139, 0.07)
-      );
-      clip-path: polygon(
-        0 100%,
-        0 84%,
-        5% 84%,
-        5% 73%,
-        8% 73%,
-        8% 86%,
-        14% 86%,
-        14% 76%,
-        18% 76%,
-        18% 87%,
-        25% 87%,
-        25% 72%,
-        28% 72%,
-        28% 53%,
-        31% 72%,
-        31% 87%,
-        40% 87%,
-        40% 78%,
-        44% 78%,
-        44% 88%,
-        50% 88%,
-        50% 68%,
-        53% 68%,
-        53% 45%,
-        56% 68%,
-        56% 88%,
-        64% 88%,
-        64% 75%,
-        68% 75%,
-        68% 87%,
-        75% 87%,
-        75% 69%,
-        78% 69%,
-        78% 52%,
-        81% 69%,
-        81% 87%,
-        88% 87%,
-        88% 77%,
-        92% 77%,
-        92% 87%,
-        100% 87%,
-        100% 100%
-      );
+      left: 50%;
+      bottom: -4px;
+      z-index: 1;
+      width: min(760px, 72vw);
+      height: auto;
+      color: #8b72aa;
+      opacity: 0.16;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 12px 24px rgba(103, 79, 134, 0.08));
       pointer-events: none;
     }
 
+    .castle-lineart .castle-window {
+      fill: #d7a85a;
+      stroke: none;
+      opacity: 0.75;
+    }
+
     .hero-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
       grid-template-columns: 1.35fr 0.78fr;
       align-items: center;
@@ -1213,9 +1182,10 @@
         width: min(270px, 68vw);
       }
 
-      .hero::after {
-        height: 105px;
-        opacity: 0.8;
+      .castle-lineart {
+        width: min(680px, 92vw);
+        bottom: -2px;
+        opacity: 0.11;
       }
 
       .card-grid,
@@ -1261,6 +1231,10 @@
 
       .contact-box {
         padding: 31px 25px;
+      }
+
+      .castle-lineart {
+        display: none;
       }
     }
 
@@ -1327,6 +1301,125 @@
     <!-- Home -->
 
     <section class="hero" id="home">
+
+      <svg
+        class="castle-lineart"
+        viewBox="0 0 900 220"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <defs>
+          <linearGradient id="castleGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#b8a6da" />
+            <stop offset="52%" stop-color="#d4b8dc" />
+            <stop offset="100%" stop-color="#efc6d6" />
+          </linearGradient>
+        </defs>
+
+        <g
+          fill="url(#castleGradient)"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linejoin="round"
+        >
+          <!-- Main base -->
+          <path d="M205 202H695V169H205Z" />
+
+          <!-- Far-left tower -->
+          <path d="M150 202V150H219V202Z" />
+          <path d="M145 150L184.5 106L224 150Z" />
+          <path d="M184.5 106V89" />
+          <path d="M184.5 89L204 97L184.5 104Z" />
+
+          <!-- Left tower -->
+          <path d="M230 202V118H326V202Z" />
+          <path d="M220 118L278 62L336 118Z" />
+          <path d="M278 62V39" />
+          <path d="M278 39L304 49L278 58Z" />
+
+          <!-- Central keep -->
+          <path d="M326 202V96H574V202Z" />
+          <path d="M354 96V73H546V96Z" />
+
+          <!-- Central tower -->
+          <path d="M397 202V61H503V202Z" />
+          <path d="M383 61L450 11L517 61Z" />
+          <path d="M450 11V-1" />
+          <path d="M450 0L478 11L450 21Z" />
+
+          <!-- Right tower -->
+          <path d="M574 202V118H670V202Z" />
+          <path d="M564 118L622 62L680 118Z" />
+          <path d="M622 62V39" />
+          <path d="M622 39L648 49L622 58Z" />
+
+          <!-- Far-right tower -->
+          <path d="M681 202V150H750V202Z" />
+          <path d="M676 150L715.5 106L755 150Z" />
+          <path d="M715.5 106V89" />
+          <path d="M715.5 89L735 97L715.5 104Z" />
+
+          <!-- Decorative side spires -->
+          <path d="M336 202V139H382V202Z" />
+          <path d="M330 139L359 103L388 139Z" />
+
+          <path d="M518 202V139H564V202Z" />
+          <path d="M512 139L541 103L570 139Z" />
+
+          <!-- Main arched doorway -->
+          <path d="M420 202V157C420 137 480 137 480 157V202Z" />
+
+          <!-- Battlements -->
+          <path d="M326 96H348V84H370V96H392V84H414V96H436V84H458V96H480V84H502V96H524V84H546V96H574" />
+
+          <!-- Ground line -->
+          <path d="M112 202H788" fill="none" />
+        </g>
+
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+        >
+          <!-- Windows -->
+          <path d="M170 168H199V189H170Z" />
+          <path d="M254 145H277V171H254Z" />
+          <path d="M287 145H310V171H287Z" />
+
+          <path d="M420 91H443V120H420Z" />
+          <path d="M457 91H480V120H457Z" />
+
+          <path d="M590 145H613V171H590Z" />
+          <path d="M623 145H646V171H623Z" />
+          <path d="M701 168H730V189H701Z" />
+
+          <path d="M344 158H365V181H344Z" />
+          <path d="M535 158H556V181H535Z" />
+
+          <!-- Roof details -->
+          <path d="M160 147H209" />
+          <path d="M239 115H317" />
+          <path d="M583 115H661" />
+          <path d="M691 147H740" />
+
+          <!-- Small stars -->
+          <path d="M105 92L110 102L120 107L110 112L105 122L100 112L90 107L100 102Z" />
+          <path d="M795 80L800 90L810 95L800 100L795 110L790 100L780 95L790 90Z" />
+        </g>
+
+        <g class="castle-window">
+          <path d="M174 171H195V186H174Z" />
+          <path d="M258 149H273V167H258Z" />
+          <path d="M291 149H306V167H291Z" />
+          <path d="M424 95H439V116H424Z" />
+          <path d="M461 95H476V116H461Z" />
+          <path d="M594 149H609V167H594Z" />
+          <path d="M627 149H642V167H627Z" />
+          <path d="M705 171H726V186H705Z" />
+        </g>
+      </svg>
+
       <div class="container hero-grid">
 
         <div class="hero-content">
@@ -1819,7 +1912,7 @@
           <p>
             I am interested in research opportunities and academic
             collaboration in statistics, optimization, and
-            quantitative finance.
+            data-driven decision-making.
           </p>
 
           <p>
