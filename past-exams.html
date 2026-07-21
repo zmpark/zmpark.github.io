@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="description" content="Past Exams for Probability Theory and Mathematical Statistics, Fall 2026.">
-      <meta name="theme-color" content="#f7f2fb">
+      <meta name="theme-color" content="#201a26">
       <title>Past Exams | Zhengmin Piao</title>
       <style>
 
@@ -613,14 +613,226 @@
       .reveal { opacity: 1; transform: none; }
     }
 
-      </style>
+    
+    /* =========================================================
+       Version 4.3 Premium Academic Theme
+       Shared by Research, Teaching, and resource pages
+       ========================================================= */
+
+    :root {
+      --background: #f7f5f2;
+      --surface: rgba(255, 255, 255, 0.92);
+      --text: #292532;
+      --muted: #716b75;
+      --primary: #6b5a7a;
+      --primary-dark: #31293c;
+      --pink: #aa929f;
+      --pink-strong: #987887;
+      --lavender: #8f819d;
+      --ice: #e9e5e9;
+      --gold: #c3a66b;
+      --border: rgba(67, 54, 77, 0.14);
+      --shadow: 0 22px 60px rgba(38, 29, 47, 0.13);
+      --shadow-soft: 0 12px 34px rgba(38, 29, 47, 0.08);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 7% 2%, rgba(237, 232, 224, 0.84), transparent 31rem),
+        linear-gradient(180deg, #faf9f7 0%, #f5f2ee 56%, #f1ede8 100%);
+    }
+
+    .navbar,
+    .navbar.scrolled {
+      background: rgba(28, 24, 34, 0.96);
+      border-bottom: 1px solid rgba(195, 166, 107, 0.28);
+      box-shadow: 0 9px 30px rgba(15, 12, 18, 0.16);
+    }
+
+    .logo {
+      color: #f5efe5;
+    }
+
+    .logo::after {
+      color: var(--gold);
+    }
+
+    .nav-links a {
+      color: rgba(245, 239, 229, 0.74);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fffaf0;
+    }
+
+    .menu-toggle {
+      border-color: rgba(195, 166, 107, 0.28);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .menu-toggle span {
+      background: #f5efe5;
+    }
+
+    .page-hero {
+      color: #f5efe5;
+      border-bottom-color: rgba(195, 166, 107, 0.20);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(140, 112, 154, 0.24), transparent 28%),
+        radial-gradient(circle at 14% 12%, rgba(195, 166, 107, 0.11), transparent 33%),
+        linear-gradient(135deg, #17141c 0%, #282130 49%, #3b3043 100%);
+    }
+
+    .page-hero h1 {
+      color: #f7f1e7;
+      text-shadow: 0 10px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .page-hero p {
+      color: rgba(245, 239, 229, 0.73);
+    }
+
+    .button-primary {
+      color: #201a26;
+      background: linear-gradient(135deg, #eadab6, #c3a66b);
+      box-shadow: 0 12px 30px rgba(195, 166, 107, 0.17);
+    }
+
+    .button-secondary {
+      color: #f6efe5;
+      border-color: rgba(232, 218, 191, 0.30);
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .section.alt {
+      background: rgba(255, 255, 255, 0.47);
+      border-color: rgba(67, 54, 77, 0.08);
+    }
+
+    .section-title {
+      color: #31293c;
+    }
+
+    .section-title::before {
+      background: linear-gradient(90deg, var(--gold), #796483);
+    }
+
+    .interest-card,
+    .experience-card,
+    .project-card,
+    .resource-card,
+    .info-item,
+    .log-wrap,
+    .file-row,
+    .empty-state {
+      border-color: rgba(68, 54, 77, 0.12);
+      background:
+        linear-gradient(
+          150deg,
+          rgba(255, 255, 255, 0.97),
+          rgba(247, 244, 239, 0.89)
+        );
+      box-shadow: 0 12px 32px rgba(38, 29, 47, 0.07);
+    }
+
+    .interest-card::after,
+    .experience-card::after,
+    .project-card::after,
+    .resource-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 2px;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(195, 166, 107, 0.66),
+          transparent
+        );
+    }
+
+    .interest-card h3,
+    .experience-card h3,
+    .project-card h3,
+    .resource-card h3,
+    .info-value,
+    .file-title {
+      color: #3a3042;
+    }
+
+    .card-meta,
+    .experience-org,
+    .project-subtitle,
+    .info-label,
+    .file-action,
+    .week-cell {
+      color: #8b6f36 !important;
+    }
+
+    .tech-tag,
+    .resource-icon {
+      color: #5c4b29;
+      border-color: rgba(195, 166, 107, 0.20);
+      background: rgba(232, 218, 191, 0.47);
+    }
+
+    .status-pill.ongoing {
+      color: #5b4420;
+      background: rgba(227, 204, 155, 0.58);
+    }
+
+    .status-pill.completed {
+      color: #3e5144;
+      background: rgba(210, 226, 214, 0.72);
+    }
+
+    .course-log th {
+      color: #f2e7d4;
+      background: #31293c;
+    }
+
+    .notice {
+      color: #5f5036;
+      border-color: rgba(195, 166, 107, 0.25);
+      background: rgba(248, 241, 225, 0.80);
+    }
+
+    footer {
+      color: #c5b8ca;
+      border-top-color: rgba(195, 166, 107, 0.22);
+      background: #201a26;
+    }
+
+    .sparkle {
+      background: rgba(240, 222, 181, 0.82);
+      box-shadow:
+        0 0 10px rgba(240, 222, 181, 0.66),
+        0 0 20px rgba(195, 166, 107, 0.26);
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        background: rgba(28, 24, 34, 0.98);
+        border-color: rgba(195, 166, 107, 0.24);
+      }
+
+      .nav-links a {
+        color: rgba(245, 239, 229, 0.78);
+      }
+    }
+
+  </style>
     </head>
     <body>
       <div class="sparkle-field" aria-hidden="true"></div>
 
 <nav class="navbar">
   <div class="container nav-content">
-    <a class="logo" href="index.html">Zhengmin Piao</a>
+    <a class="logo" href="./index.html">Zhengmin Piao</a>
 
     <button
       class="menu-toggle"
@@ -632,7 +844,7 @@
     </button>
 
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li><li><a href="research.html">Research</a></li><li><a href="research.html#course-projects">Projects</a></li><li><a href="teaching.html" class="active">Teaching</a></li><li><a href="Zhengmin_Piao_CV.pdf">CV</a></li><li><a href="index.html#home-contact">Contact</a></li>
+      <li><a href="./index.html">Home</a></li><li><a href="./research.html">Research</a></li><li><a href="./research.html#course-projects">Projects</a></li><li><a href="./teaching.html" class="active">Teaching</a></li><li><a href="./Zhengmin_Piao_CV.pdf">CV</a></li>
     </ul>
   </div>
 </nav>
@@ -644,7 +856,7 @@
       <h1>Past Exams</h1>
       <p>Past examination papers and review materials shared only when permission and provenance are clear.</p>
       <div class="hero-actions">
-        <a class="button button-primary" href="teaching.html">Back to Course Page</a>
+        <a class="button button-primary" href="./teaching.html">Back to Course Page</a>
         <a class="button button-secondary" href="mailto:zmpark2k2000@gmail.com">Contact the TA</a>
       </div>
     </div>
