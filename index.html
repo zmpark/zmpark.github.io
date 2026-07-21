@@ -13,7 +13,7 @@
     content="Personal academic website of Zhengmin Piao, a statistics undergraduate at the University of Science and Technology of China."
   >
 
-  <meta name="theme-color" content="#f7f2fb">
+  <meta name="theme-color" content="#201a26">
 
   <title>Zhengmin Piao | Statistics, Optimization & Quantitative Finance</title>
 
@@ -1567,6 +1567,351 @@
       }
     }
 
+
+    /* =========================================================
+       Premium Academic Preview
+       Midnight plum + pearl + champagne gold
+       ========================================================= */
+
+    :root {
+      --background: #f7f5f2;
+      --background-alt: #eee9e3;
+      --surface: rgba(255, 255, 255, 0.90);
+      --surface-solid: #ffffff;
+      --text: #292532;
+      --muted: #716b75;
+      --primary: #6b5a7a;
+      --primary-dark: #31293c;
+      --pink: #b99aaa;
+      --pink-strong: #a98296;
+      --lavender: #8f819d;
+      --ice: #e9e5e9;
+      --gold: #c3a66b;
+      --border: rgba(67, 54, 77, 0.14);
+      --shadow: 0 22px 60px rgba(38, 29, 47, 0.13);
+      --shadow-soft: 0 12px 34px rgba(38, 29, 47, 0.08);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 8% 0%, rgba(237, 232, 224, 0.84), transparent 32rem),
+        linear-gradient(180deg, #faf9f7 0%, #f5f2ee 54%, #f1ede8 100%);
+    }
+
+    .navbar {
+      background: rgba(28, 24, 34, 0.93);
+      border-bottom: 1px solid rgba(195, 166, 107, 0.28);
+      box-shadow: 0 8px 28px rgba(15, 12, 18, 0.12);
+    }
+
+    .navbar.scrolled {
+      background: rgba(24, 20, 29, 0.97);
+      box-shadow: 0 12px 36px rgba(15, 12, 18, 0.18);
+    }
+
+    .logo {
+      color: #f5efe5;
+    }
+
+    .logo::after {
+      color: var(--gold);
+    }
+
+    .nav-links a {
+      color: rgba(245, 239, 229, 0.72);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fffaf0;
+    }
+
+    .nav-links a::after {
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .menu-toggle {
+      border-color: rgba(195, 166, 107, 0.26);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .menu-toggle span {
+      background: #f5efe5;
+    }
+
+    .hero {
+      min-height: calc(100vh - var(--nav-height));
+      padding: 86px 0 112px;
+      color: #f6f0e7;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(140, 112, 154, 0.24), transparent 30%),
+        radial-gradient(circle at 17% 25%, rgba(195, 166, 107, 0.12), transparent 35%),
+        radial-gradient(circle at 65% 82%, rgba(99, 73, 112, 0.24), transparent 31%),
+        linear-gradient(135deg, #17141c 0%, #282130 48%, #3b3043 100%);
+    }
+
+    .hero::before {
+      inset: -42% -8% auto 43%;
+      width: 780px;
+      height: 780px;
+      border-color: rgba(232, 218, 191, 0.15);
+      background:
+        radial-gradient(
+          circle,
+          rgba(232, 218, 191, 0.10),
+          rgba(255, 255, 255, 0.025) 52%,
+          transparent 69%
+        );
+      filter: blur(1px);
+    }
+
+    .sparkle {
+      background: rgba(240, 222, 181, 0.88);
+      box-shadow:
+        0 0 10px rgba(240, 222, 181, 0.70),
+        0 0 20px rgba(195, 166, 107, 0.30);
+    }
+
+    .castle-lineart {
+      color: #d2b97e;
+      opacity: 0.19;
+      filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.16));
+    }
+
+    .castle-lineart .castle-window {
+      fill: #e5c67d;
+      opacity: 0.65;
+    }
+
+    .eyebrow {
+      border-color: rgba(195, 166, 107, 0.32);
+      background: rgba(255, 255, 255, 0.055);
+      color: #e8d6ad;
+      box-shadow: none;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .eyebrow::before {
+      color: var(--gold);
+    }
+
+    .hero h1 {
+      color: #f7f1e7;
+      text-shadow: 0 10px 36px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero h1 span {
+      background: linear-gradient(
+        102deg,
+        #fffaf0 0%,
+        #e8d7b1 48%,
+        #c8a968 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      color: #f2e9dc;
+    }
+
+    .hero-description {
+      color: rgba(245, 239, 229, 0.72);
+    }
+
+    .personal-quote {
+      color: rgba(244, 235, 224, 0.76);
+    }
+
+    .personal-quote::before {
+      background: linear-gradient(var(--gold), rgba(195, 166, 107, 0.22));
+    }
+
+    .button-primary {
+      color: #201a26;
+      background: linear-gradient(135deg, #eadab6, #c3a66b);
+      box-shadow: 0 12px 32px rgba(195, 166, 107, 0.18);
+    }
+
+    .button-primary:hover {
+      background: linear-gradient(135deg, #f2e6cc, #ceb37a);
+    }
+
+    .button-secondary {
+      color: #f6efe5;
+      border-color: rgba(232, 218, 191, 0.30);
+      background: rgba(255, 255, 255, 0.055);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(232, 218, 191, 0.52);
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    .profile-wrapper::before {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(231, 214, 175, 0.66),
+          rgba(115, 89, 126, 0.46),
+          rgba(195, 166, 107, 0.55)
+        );
+      box-shadow:
+        0 0 0 1px rgba(234, 218, 182, 0.22),
+        0 26px 70px rgba(0, 0, 0, 0.28);
+    }
+
+    .profile-wrapper::after {
+      border-color: rgba(231, 214, 175, 0.20);
+    }
+
+    .profile-photo {
+      border-color: rgba(250, 245, 235, 0.88);
+      box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.28),
+        inset 0 0 0 1px rgba(195, 166, 107, 0.18);
+    }
+
+    .profile-star {
+      color: #e5c982;
+      text-shadow: 0 0 16px rgba(229, 201, 130, 0.46);
+    }
+
+    .profile-contact {
+      border-color: rgba(221, 204, 166, 0.24);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(42, 34, 50, 0.88),
+          rgba(30, 25, 36, 0.82)
+        );
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.24);
+    }
+
+    .profile-contact::before {
+      content: "";
+      display: block;
+      width: 52px;
+      height: 2px;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .profile-contact h2 {
+      color: #f2e7d4;
+    }
+
+    .profile-contact p {
+      color: rgba(242, 231, 212, 0.70);
+    }
+
+    .profile-contact a {
+      color: #e4c987;
+      text-decoration-color: rgba(228, 201, 135, 0.35);
+    }
+
+    .section-white {
+      background: rgba(255, 255, 255, 0.46);
+    }
+
+    .section-title,
+    .subsection-title {
+      color: #31293c;
+    }
+
+    .section-title::before {
+      background: linear-gradient(90deg, var(--gold), #796483);
+    }
+
+    .interest-card,
+    .experience-card,
+    .project-card,
+    .teaching-summary,
+    .teaching-schedule,
+    .honor-item,
+    .skill-group {
+      border-color: rgba(68, 54, 77, 0.12);
+      background:
+        linear-gradient(
+          150deg,
+          rgba(255, 255, 255, 0.95),
+          rgba(247, 244, 239, 0.86)
+        );
+      box-shadow: 0 12px 32px rgba(38, 29, 47, 0.07);
+    }
+
+    .interest-card::after,
+    .experience-card::after,
+    .project-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(195, 166, 107, 0.66), transparent);
+    }
+
+    .interest-card h3,
+    .experience-card h3,
+    .project-card h3,
+    .teaching-summary h3,
+    .teaching-schedule h3,
+    .skill-group h3 {
+      color: #3a3042;
+    }
+
+    .card-meta,
+    .experience-org,
+    .project-subtitle,
+    .honor-year {
+      color: #8b6f36 !important;
+    }
+
+    .tech-tag {
+      color: #5c4b29;
+      border-color: rgba(195, 166, 107, 0.20);
+      background: rgba(232, 218, 191, 0.45);
+    }
+
+    .status-pill.ongoing {
+      color: #5b4420;
+      background: rgba(227, 204, 155, 0.58);
+    }
+
+    .status-pill.completed {
+      color: #3e5144;
+      background: rgba(210, 226, 214, 0.72);
+    }
+
+    .section-page-link {
+      border-color: rgba(116, 93, 52, 0.20);
+      color: #5f4a25;
+      background: rgba(255, 252, 246, 0.72);
+    }
+
+    footer {
+      color: #c5b8ca;
+      border-top-color: rgba(195, 166, 107, 0.22);
+      background: #201a26;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        background: rgba(28, 24, 34, 0.98);
+        border-color: rgba(195, 166, 107, 0.24);
+      }
+
+      .nav-links a {
+        color: rgba(245, 239, 229, 0.78);
+      }
+    }
+
   </style>
 </head>
 
@@ -1615,9 +1960,9 @@
       >
         <defs>
           <linearGradient id="castleGradient" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#b8a6da" />
-            <stop offset="52%" stop-color="#d4b8dc" />
-            <stop offset="100%" stop-color="#efc6d6" />
+            <stop offset="0%" stop-color="#8d7951" />
+            <stop offset="52%" stop-color="#b5a07a" />
+            <stop offset="100%" stop-color="#d8c49a" />
           </linearGradient>
         </defs>
 
