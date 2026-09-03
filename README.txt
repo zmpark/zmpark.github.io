@@ -27,3 +27,15 @@ v10 changes:
 - Added downloadable PDF assets under assets/pdfs/.
 - Updated assignments.html with the homework deadline / late-submission / plagiarism policy.
 - Student-facing course pages use a course-only footer instead of personal branding.
+
+v11 changes:
+- Past Exams now lists four separate downloadable PDF files.
+- Schedule & Course Log is temporarily limited to Weeks 1–6.
+- REFERENCE ANSWER now contains two button slots per week.
+- Uploaded homework-answer buttons use green borders.
+- Uploaded quiz-answer buttons use blue borders.
+- Week 1 includes the uploaded Quiz9.4 answer PDF.
+
+v12 changes:
+- Restored the original combined Past Exams material as "Probability Theory and Mathematical Statistics - Past Exams".
+- Kept all four newly added individual exam PDFs.
