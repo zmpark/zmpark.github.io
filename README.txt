@@ -39,3 +39,29 @@ v11 changes:
 v12 changes:
 - Restored the original combined Past Exams material as "Probability Theory and Mathematical Statistics - Past Exams".
 - Kept all four newly added individual exam PDFs.
+
+
+v13 changes:
+- Added full class roster student IDs to assignments.html.
+- Made each Course Resources card fully clickable.
+- Added course-group castle image and QQ group label to stat2002-12 banner.
+- Updated About Me wording on the home page.
+
+
+v14 changes:
+- Fixed the home-page skyline so the dark/white boundary sits directly below the buildings.
+- Rebuilt Research into Working Papers and Selected Papers & Reports.
+- Added CELLME draft PDF.
+- Added MCM/ICM 2026 paper PDF plus code/data page and downloadable code bundle.
+- Added green available buttons and dashed unavailable buttons.
+
+
+v15 changes:
+- Added assignment contact routing by student-ID threshold.
+- Removed the Available Files headings from Course Materials and Past Exams.
+- Replaced the Research banner illustration with a rectangular galaxy image.
+- Renamed the patient-capital subproject and simplified its geographic wording.
+- Changed CELLME from Draft Manuscript/Draft to Working Paper/In Progress.
+- Marked surveillance-camera supporting materials as not publicly distributed.
+- Added four more MCM scripts and the official Problem C statement to the MCM code page/bundle.
+- Replaced the Home portrait and tightened the hero/contact/skyline layout for one-screen viewing.
