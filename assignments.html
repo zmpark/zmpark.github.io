@@ -4,10 +4,580 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Assignment Records | STAT2002.12</title>
+
+<!-- Keep your site's existing assets when this file is uploaded to the repo. -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+/* =========================================================
+   Standalone fallback + page-specific styles.
+   These styles deliberately reproduce the current
+   black-purple-gold STAT2002.12 page shown on zmpark.github.io.
+   ========================================================= */
+
+:root {
+  --ink: #30293b;
+  --purple: #3b3150;
+  --purple-deep: #272131;
+  --gold: #d5b96e;
+  --gold-deep: #9a7622;
+  --cream: #f3df9e;
+  --line: #e8e4ec;
+  --muted: #716c78;
+  --page: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--page);
+  color: #4c4653;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--gold-deep);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- hero ---------- */
+.page-banner.assignment-banner {
+  position: relative;
+  overflow: hidden;
+  min-height: 408px;
+  background:
+    radial-gradient(circle at 72% 20%, rgba(232,210,129,.95) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 85% 33%, rgba(255,255,255,.90) 0 1.4px, transparent 2.6px),
+    radial-gradient(circle at 49% 47%, rgba(239,220,142,.75) 0 1.2px, transparent 2.4px),
+    radial-gradient(circle at 93% 66%, rgba(255,255,255,.72) 0 1.3px, transparent 2.5px),
+    radial-gradient(circle at 17% 74%, rgba(243,218,127,.65) 0 1.3px, transparent 2.4px),
+    radial-gradient(circle at 61% 77%, rgba(255,255,255,.72) 0 1.2px, transparent 2.4px),
+    radial-gradient(circle at 10% 31%, rgba(255,255,255,.55) 0 1.1px, transparent 2.3px),
+    linear-gradient(115deg, #29242e 0%, #30293a 44%, #3a2e4c 100%);
+}
+
+.page-banner.assignment-banner::before,
+.page-banner.assignment-banner::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 14px;
+  height: 14px;
+  opacity: .8;
+  background:
+    linear-gradient(90deg, transparent 45%, rgba(242,218,135,.9) 48%, rgba(242,218,135,.9) 52%, transparent 55%),
+    linear-gradient(0deg, transparent 45%, rgba(242,218,135,.9) 48%, rgba(242,218,135,.9) 52%, transparent 55%);
+  filter: drop-shadow(0 0 7px rgba(242,218,135,.45));
+}
+
+.page-banner.assignment-banner::before {
+  left: 55%;
+  top: 31%;
+}
+
+.page-banner.assignment-banner::after {
+  right: 16%;
+  top: 49%;
+  transform: scale(.7);
+}
+
+.page-banner-inner.assignment-banner-inner {
+  width: min(1090px, calc(100% - 80px));
+  margin: 0 auto;
+  min-height: 408px;
+  display: flex;
+  align-items: center;
+}
+
+.page-banner-copy {
+  padding-top: 6px;
+}
+
+.course-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 27px;
+}
+
+.eyebrow,
+.course-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 17px;
+  border: 1px solid rgba(219,191,111,.38);
+  border-radius: 999px;
+  color: #e4ca80;
+  background: rgba(255,255,255,.015);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .11em;
+}
+
+.course-meta-pill {
+  border-color: rgba(255,255,255,.22);
+  color: #e8e4df;
+}
+
+.page-banner h1 {
+  margin: 0 0 16px;
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+  font-weight: 700;
+}
+
+.page-banner p {
+  margin: 0;
+  color: rgba(255,255,255,.83);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+/* ---------- content ---------- */
+.content-section.assignment-content {
+  width: min(1110px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 62px 0 72px;
+}
+
+.back-link {
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.back-link a {
+  color: #675d72;
+}
+
+.back-link i {
+  margin-right: 3px;
+}
+
+.assignment-contact-note {
+  margin: 0 0 30px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #6b6670;
+}
+
+.assignment-contact-note a {
+  color: #a57b16;
+  font-weight: 800;
+}
+
+.record-sheet {
+  margin-top: 18px;
+}
+
+.homework-sheet {
+  margin-top: 38px;
+}
+
+.sheet-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 18px;
+}
+
+.sheet-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #4b4456;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.sheet-label i {
+  font-size: 18px;
+  color: #57505f;
+}
+
+.grade-table-shell {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 7px 24px rgba(39,33,49,.08);
+}
+
+.grade-table {
+  width: 100%;
+  min-width: 880px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  background: #fff;
+  font-size: 15px;
+}
+
+.grade-table th {
+  height: 54px;
+  padding: 0 16px;
+  background: var(--purple);
+  color: #fff;
+  border-right: 1px solid rgba(255,255,255,.58);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: .04em;
+}
+
+.grade-table th:first-child {
+  text-align: left;
+  border-top-left-radius: 18px;
+}
+
+.grade-table th:last-child {
+  border-right: 0;
+  border-top-right-radius: 18px;
+}
+
+.grade-table td {
+  height: 58px;
+  padding: 0 16px;
+  border-right: 1px solid #e5e1e8;
+  border-bottom: 1px solid #e5e1e8;
+  background: #fff;
+  color: #645d6d;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.grade-table td:first-child {
+  border-left: 1px solid #e5e1e8;
+  text-align: left;
+  color: #50495c;
+  font-weight: 800;
+  letter-spacing: .015em;
+}
+
+.grade-table tbody tr:hover td {
+  background: #fcfbfd;
+}
+
+.grade-table .student-id-col {
+  width: 19%;
+}
+
+.grade-table .score-cell {
+  color: #4d4657;
+}
+
+
+/* ---------- fixed-height scrollable grade tables ---------- */
+.grade-table-shell {
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: 18px;
+  scrollbar-gutter: stable;
+}
+
+.grade-table-shell::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.grade-table-shell::-webkit-scrollbar-track {
+  background: #f4f1f6;
+}
+
+.grade-table-shell::-webkit-scrollbar-thumb {
+  background: #c9c2d0;
+  border-radius: 999px;
+  border: 2px solid #f4f1f6;
+}
+
+.grade-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.grade-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ---------- edit buttons, styled to belong to this site ---------- */
+.grade-edit-btn,
+.grade-save-btn,
+.grade-cancel-btn {
+  appearance: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .16s ease;
+}
+
+.grade-edit-btn {
+  border: 1px solid rgba(154,118,34,.55);
+  color: #8c6b20;
+  background: #fffdf8;
+}
+
+.grade-edit-btn:hover {
+  background: #f7efd9;
+  transform: translateY(-1px);
+}
+
+.grade-save-btn {
+  border: 1px solid #3b3150;
+  color: #fff;
+  background: #3b3150;
+}
+
+.grade-save-btn:hover {
+  background: #2e263e;
+  transform: translateY(-1px);
+}
+
+.grade-cancel-btn {
+  border: 1px solid #d9d4de;
+  color: #5d5667;
+  background: #fff;
+}
+
+.grade-cancel-btn:hover {
+  background: #f7f5f8;
+}
+
+.grade-edit-btn:disabled,
+.grade-save-btn:disabled,
+.grade-cancel-btn:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.grade-editor-actions {
+  display: none;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  padding: 13px 0 0;
+}
+
+.record-sheet.is-editing .grade-editor-actions {
+  display: flex;
+}
+
+.grade-editor-hint {
+  margin-left: 3px;
+  color: #857f89;
+  font-size: 13px;
+}
+
+.grade-input {
+  width: 72px;
+  max-width: 100%;
+  padding: 7px 7px;
+  border: 1px solid #c9c3cf;
+  border-radius: 8px;
+  background: #fff;
+  color: #453e50;
+  text-align: center;
+  font: inherit;
+  font-weight: 700;
+  outline: none;
+}
+
+.grade-input:focus {
+  border-color: #9a7622;
+  box-shadow: 0 0 0 3px rgba(154,118,34,.13);
+}
+
+.grade-input.invalid {
+  border-color: #b42318;
+  box-shadow: 0 0 0 3px rgba(180,35,24,.12);
+}
+
+.assignment-policy {
+  display: flex;
+  gap: 10px;
+  margin-top: 35px;
+  padding: 17px 18px;
+  border: 1px solid #e8e1cf;
+  border-radius: 13px;
+  background: #fffaf0;
+  color: #766b50;
+  line-height: 1.65;
+}
+
+.assignment-policy p {
+  margin: 0;
+}
+
+.assignment-policy i {
+  color: #a57b16;
+  padding-top: 2px;
+}
+
+.site-footer {
+  padding: 26px 24px 34px;
+  border-top: 1px solid #ece8ee;
+  color: #918a95;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* ---------- dialog / toast ---------- */
+.grade-toast {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1300;
+  max-width: min(430px, calc(100vw - 44px));
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #332a45;
+  color: #fff;
+  box-shadow: 0 15px 40px rgba(28,22,35,.25);
+  opacity: 0;
+  transform: translateY(9px);
+  pointer-events: none;
+  transition: .2s ease;
+}
+
+.grade-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.grade-toast.error {
+  background: #8f2a2a;
+}
+
+.grade-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(28,23,35,.48);
+  backdrop-filter: blur(4px);
+}
+
+.grade-modal-backdrop.open {
+  display: flex;
+}
+
+.grade-modal {
+  width: min(430px, 100%);
+  padding: 25px;
+  border: 1px solid rgba(213,185,110,.28);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 25px 75px rgba(24,19,31,.30);
+}
+
+.grade-modal h3 {
+  margin: 0 0 8px;
+  color: #3b3150;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+}
+
+.grade-modal p {
+  margin: 0 0 17px;
+  color: #746d79;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.grade-modal input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #cfc9d3;
+  border-radius: 10px;
+  color: #3b3542;
+  font: inherit;
+  outline: none;
+}
+
+
+#adminPassword {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: .42em;
+  padding-left: calc(12px + .42em);
+  font-variant-numeric: tabular-nums;
+}
+
+.grade-modal input:focus {
+  border-color: #9a7622;
+  box-shadow: 0 0 0 3px rgba(154,118,34,.12);
+}
+
+.grade-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.grade-modal-status {
+  min-height: 21px;
+  margin-top: 9px;
+  color: #a62b2b;
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .page-banner.assignment-banner,
+  .page-banner-inner.assignment-banner-inner {
+    min-height: 335px;
+  }
+
+  .page-banner-inner.assignment-banner-inner,
+  .content-section.assignment-content {
+    width: min(100% - 34px, 1110px);
+  }
+
+  .page-banner h1 {
+    font-size: 46px;
+  }
+
+  .course-badge-row {
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+
+  .sheet-label-row {
+    align-items: flex-start;
+  }
+
+  .grade-edit-btn {
+    white-space: nowrap;
+  }
+}
+</style>
 </head>
 <body>
+
 <section class="page-banner assignment-banner">
   <div class="page-banner-inner assignment-banner-inner">
     <div class="page-banner-copy">
@@ -22,7 +592,9 @@
 </section>
 
 <main class="content-section assignment-content">
-  <p class="back-link"><a href="stat2002-12.html"><i class="bi bi-arrow-left"></i> Back to Course Page</a></p>
+  <p class="back-link">
+    <a href="stat2002-12.html"><i class="bi bi-arrow-left"></i> Back to Course Page</a>
+  </p>
 
   <p class="section-subtitle assignment-contact-note">
     The table will be updated as homework is collected and graded. For resubmissions or questions, please contact
@@ -32,261 +604,393 @@
     <a href="mailto:zxrdyx668@mail.ustc.edu.cn">zxrdyx668@mail.ustc.edu.cn</a> if it is &le; 25051003.
   </p>
 
-  <section class="record-sheet">
-    <div class="sheet-label"><i class="bi bi-clipboard-check"></i> Quiz Record</div>
-    <div class="grade-table-shell compact-grade-table-shell">
-      <table class="grade-table compact-grade-table">
-        <thead><tr><th class="student-id-col">STUDENT ID</th><th>QUIZ 1</th><th>QUIZ 2</th><th>QUIZ 3</th><th>QUIZ 4</th><th>QUIZ 5</th><th>QUIZ 6</th></tr></thead>
-        <tbody>
-        <tr><td>JL25032404</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>JL25032405</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB24081557</td><td class="score-cell">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB24231832</td><td class="score-cell">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000057</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000160</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000180</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000222</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000233</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000306</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000371</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020518</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020587</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020626</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020647</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020660</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020661</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020674</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25030854</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25030860</td><td class="score-cell">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050871</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050873</td><td class="score-cell">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050890</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050895</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050901</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050907</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050909</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050910</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050933</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050936</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050941</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050948</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050949</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050950</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050953</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050955</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050956</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050958</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050959</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050960</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050962</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050963</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050964</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050975</td><td class="score-cell">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050976</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050980</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050981</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050984</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050985</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050987</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050988</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050989</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050992</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050993</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050994</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050995</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051001</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051003</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051004</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051006</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051012</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051013</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051014</td><td class="score-cell">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051015</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051019</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051023</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051036</td><td class="score-cell">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051038</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051040</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051042</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051053</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051059</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051060</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051085</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051091</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051094</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051097</td><td class="score-cell">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051098</td><td class="score-cell">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051127</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051128</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061171</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061194</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061195</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061205</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061245</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061290</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061295</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061298</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061309</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25071352</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25071371</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25071374</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25071412</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081445</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081456</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081457</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081465</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081472</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081517</td><td class="score-cell">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081520</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081559</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081568</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25111694</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25512010</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612039</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612043</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612048</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612049</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612051</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612056</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612061</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25911492</td><td class="score-cell">9.5</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PL25210001</td><td class="score-cell">10</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        </tbody>
-      </table>
+  <section class="record-sheet" id="quizSheet" data-kind="quiz">
+    <div class="sheet-label-row">
+      <div class="sheet-label"><i class="bi bi-clipboard-check"></i> Quiz Record</div>
+      <button class="grade-edit-btn" type="button" data-edit="quiz">
+        <i class="bi bi-pencil-square"></i> Edit Quiz Grades
+      </button>
+    </div>
+
+    <div class="grade-table-shell compact-grade-table-shell" id="quizTableShell">
+      <table class="grade-table compact-grade-table" id="quizTable"></table>
+    </div>
+<div class="grade-editor-actions">
+      <button class="grade-save-btn" type="button" data-save="quiz">
+        <i class="bi bi-check2-circle"></i> Save Changes
+      </button>
+      <button class="grade-cancel-btn" type="button" data-cancel="quiz">Cancel</button>
+      <span class="grade-editor-hint">Enter 0–10. Leave blank to show —.</span>
     </div>
   </section>
 
-  <section class="record-sheet homework-sheet">
-    <div class="sheet-label"><i class="bi bi-journal-check"></i> Homework Record</div>
-    <div class="grade-table-shell compact-grade-table-shell">
-      <table class="grade-table compact-grade-table">
-        <thead><tr><th class="student-id-col">STUDENT ID</th><th>WEEK 1</th><th>WEEK 2</th><th>WEEK 3</th><th>WEEK 4</th><th>WEEK 5</th><th>WEEK 6</th></tr></thead>
-        <tbody>
-        <tr><td>JL25032404</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>JL25032405</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB24081557</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB24231832</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000057</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000160</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000180</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000222</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000233</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000306</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25000371</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020518</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020587</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020626</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020647</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020660</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020661</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25020674</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25030854</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25030860</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050871</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050873</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050890</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050895</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050901</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050907</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050909</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050910</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050933</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050936</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050941</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050948</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050949</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050950</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050953</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050955</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050956</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050958</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050959</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050960</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050962</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050963</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050964</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050975</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050976</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050980</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050981</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050984</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050985</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050987</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050988</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050989</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050992</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050993</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050994</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25050995</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051001</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051003</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051004</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051006</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051012</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051013</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051014</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051015</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051019</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051023</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051036</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051038</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051040</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051042</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051053</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051059</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051060</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051085</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051091</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051094</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051097</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051098</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051127</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25051128</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061171</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061194</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061195</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061205</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061245</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061290</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061295</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061298</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25061309</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25071352</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25071371</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25071374</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25071412</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081445</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081456</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081457</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081465</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081472</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081517</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081520</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081559</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25081568</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25111694</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25512010</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612039</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612043</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612048</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612049</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612051</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612056</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25612061</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PB25911492</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>PL25210001</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        </tbody>
-      </table>
+  <section class="record-sheet homework-sheet" id="homeworkSheet" data-kind="homework">
+    <div class="sheet-label-row">
+      <div class="sheet-label"><i class="bi bi-journal-check"></i> Homework Record</div>
+      <button class="grade-edit-btn" type="button" data-edit="homework">
+        <i class="bi bi-pencil-square"></i> Edit Homework Grades
+      </button>
+    </div>
+
+    <div class="grade-table-shell compact-grade-table-shell" id="homeworkTableShell">
+      <table class="grade-table compact-grade-table" id="homeworkTable"></table>
+    </div>
+<div class="grade-editor-actions">
+      <button class="grade-save-btn" type="button" data-save="homework">
+        <i class="bi bi-check2-circle"></i> Save Changes
+      </button>
+      <button class="grade-cancel-btn" type="button" data-cancel="homework">Cancel</button>
+      <span class="grade-editor-hint">Enter 0–10. Leave blank to show —.</span>
     </div>
   </section>
 
   <div class="assignment-policy" role="note">
     <i class="bi bi-info-circle"></i>
-    <p><strong>Homework Policy.</strong> The deadline for each assignment is two weeks after it is posted. Submissions received after the deadline are considered late and receive 60% of the original score. Plagiarism and academic dishonesty are strictly prohibited.</p>
+    <p><strong>Homework Policy.</strong> The deadline for each assignment is two weeks after it is posted.
+    Submissions received after the deadline are considered late and receive 60% of the original score.
+    Plagiarism and academic dishonesty are strictly prohibited.</p>
   </div>
 </main>
 
 <footer class="site-footer">STAT2002.12 · Probability Theory &amp; Mathematical Statistics · USTC</footer>
+
+<div id="gradeToast" class="grade-toast" role="status" aria-live="polite"></div>
+
+<div id="passwordModal" class="grade-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="passwordTitle">
+  <div class="grade-modal">
+    <h3 id="passwordTitle">Edit grades</h3>
+    <p>Enter the 6-digit admin PIN to unlock this grade table.</p>
+    <form id="passwordForm">
+      <input id="adminPassword" type="password" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="off" placeholder="••••••" aria-label="6-digit admin PIN" required>
+      <div id="passwordStatus" class="grade-modal-status"></div>
+      <div class="grade-modal-actions">
+        <button class="grade-cancel-btn" id="passwordCancel" type="button">Cancel</button>
+        <button class="grade-save-btn" id="passwordSubmit" type="submit">Unlock</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+/* Embedded fallback so the file still looks correct when you open it locally. */
+window.__INITIAL_GRADES__ = {"schemaVersion":1,"course":"STAT2002.12","students":["JL25032404","JL25032405","PB24081557","PB24231832","PB25000057","PB25000160","PB25000180","PB25000222","PB25000233","PB25000306","PB25000371","PB25020518","PB25020587","PB25020626","PB25020647","PB25020660","PB25020661","PB25020674","PB25030854","PB25030860","PB25050871","PB25050873","PB25050890","PB25050895","PB25050901","PB25050907","PB25050909","PB25050910","PB25050933","PB25050936","PB25050941","PB25050948","PB25050949","PB25050950","PB25050953","PB25050955","PB25050956","PB25050958","PB25050959","PB25050960","PB25050962","PB25050963","PB25050964","PB25050975","PB25050976","PB25050980","PB25050981","PB25050984","PB25050985","PB25050987","PB25050988","PB25050989","PB25050992","PB25050993","PB25050994","PB25050995","PB25051001","PB25051003","PB25051004","PB25051006","PB25051012","PB25051013","PB25051014","PB25051015","PB25051019","PB25051023","PB25051036","PB25051038","PB25051040","PB25051042","PB25051053","PB25051059","PB25051060","PB25051085","PB25051091","PB25051094","PB25051097","PB25051098","PB25051127","PB25051128","PB25061171","PB25061194","PB25061195","PB25061205","PB25061245","PB25061290","PB25061295","PB25061298","PB25061309","PB25071352","PB25071371","PB25071374","PB25071412","PB25081445","PB25081456","PB25081457","PB25081465","PB25081472","PB25081517","PB25081520","PB25081559","PB25081568","PB25111694","PB25512010","PB25612039","PB25612043","PB25612048","PB25612049","PB25612051","PB25612056","PB25612061","PB25911492","PL25210001"],"quizColumns":["QUIZ 1","QUIZ 2","QUIZ 3","QUIZ 4","QUIZ 5","QUIZ 6"],"homeworkColumns":["WEEK 1","WEEK 2","WEEK 3","WEEK 4","WEEK 5","WEEK 6"],"quiz":{"JL25032404":["10",null,null,null,null,null],"JL25032405":["10",null,null,null,null,null],"PB24081557":[null,null,null,null,null,null],"PB24231832":[null,null,null,null,null,null],"PB25000057":["10",null,null,null,null,null],"PB25000160":["10",null,null,null,null,null],"PB25000180":["10",null,null,null,null,null],"PB25000222":["10",null,null,null,null,null],"PB25000233":["10",null,null,null,null,null],"PB25000306":["10",null,null,null,null,null],"PB25000371":["10",null,null,null,null,null],"PB25020518":["9.5",null,null,null,null,null],"PB25020587":["10",null,null,null,null,null],"PB25020626":["10",null,null,null,null,null],"PB25020647":["10",null,null,null,null,null],"PB25020660":["9.5",null,null,null,null,null],"PB25020661":["10",null,null,null,null,null],"PB25020674":["10",null,null,null,null,null],"PB25030854":["10",null,null,null,null,null],"PB25030860":[null,null,null,null,null,null],"PB25050871":["10",null,null,null,null,null],"PB25050873":[null,null,null,null,null,null],"PB25050890":["10",null,null,null,null,null],"PB25050895":["10",null,null,null,null,null],"PB25050901":["9.5",null,null,null,null,null],"PB25050907":["10",null,null,null,null,null],"PB25050909":["10",null,null,null,null,null],"PB25050910":["10",null,null,null,null,null],"PB25050933":["10",null,null,null,null,null],"PB25050936":["10",null,null,null,null,null],"PB25050941":["10",null,null,null,null,null],"PB25050948":["10",null,null,null,null,null],"PB25050949":["9.5",null,null,null,null,null],"PB25050950":["10",null,null,null,null,null],"PB25050953":["10",null,null,null,null,null],"PB25050955":["9.5",null,null,null,null,null],"PB25050956":["10",null,null,null,null,null],"PB25050958":["10",null,null,null,null,null],"PB25050959":["9.5",null,null,null,null,null],"PB25050960":["10",null,null,null,null,null],"PB25050962":["10",null,null,null,null,null],"PB25050963":["10",null,null,null,null,null],"PB25050964":["10",null,null,null,null,null],"PB25050975":[null,null,null,null,null,null],"PB25050976":["10",null,null,null,null,null],"PB25050980":["10",null,null,null,null,null],"PB25050981":["10",null,null,null,null,null],"PB25050984":["10",null,null,null,null,null],"PB25050985":["10",null,null,null,null,null],"PB25050987":["10",null,null,null,null,null],"PB25050988":["9.5",null,null,null,null,null],"PB25050989":["10",null,null,null,null,null],"PB25050992":["10",null,null,null,null,null],"PB25050993":["10",null,null,null,null,null],"PB25050994":["10",null,null,null,null,null],"PB25050995":["10",null,null,null,null,null],"PB25051001":["10",null,null,null,null,null],"PB25051003":["10",null,null,null,null,null],"PB25051004":["10",null,null,null,null,null],"PB25051006":["9.5",null,null,null,null,null],"PB25051012":["10",null,null,null,null,null],"PB25051013":["10",null,null,null,null,null],"PB25051014":[null,null,null,null,null,null],"PB25051015":["10",null,null,null,null,null],"PB25051019":["10",null,null,null,null,null],"PB25051023":["10",null,null,null,null,null],"PB25051036":[null,null,null,null,null,null],"PB25051038":["10",null,null,null,null,null],"PB25051040":["10",null,null,null,null,null],"PB25051042":["10",null,null,null,null,null],"PB25051053":["9.5",null,null,null,null,null],"PB25051059":["10",null,null,null,null,null],"PB25051060":["10",null,null,null,null,null],"PB25051085":["10",null,null,null,null,null],"PB25051091":["9.5",null,null,null,null,null],"PB25051094":["10",null,null,null,null,null],"PB25051097":[null,null,null,null,null,null],"PB25051098":[null,null,null,null,null,null],"PB25051127":["10",null,null,null,null,null],"PB25051128":["10",null,null,null,null,null],"PB25061171":["10",null,null,null,null,null],"PB25061194":["10",null,null,null,null,null],"PB25061195":["10",null,null,null,null,null],"PB25061205":["10",null,null,null,null,null],"PB25061245":["10",null,null,null,null,null],"PB25061290":["10",null,null,null,null,null],"PB25061295":["10",null,null,null,null,null],"PB25061298":["10",null,null,null,null,null],"PB25061309":["10",null,null,null,null,null],"PB25071352":["10",null,null,null,null,null],"PB25071371":["10",null,null,null,null,null],"PB25071374":["10",null,null,null,null,null],"PB25071412":["10",null,null,null,null,null],"PB25081445":["10",null,null,null,null,null],"PB25081456":["10",null,null,null,null,null],"PB25081457":["10",null,null,null,null,null],"PB25081465":["9.5",null,null,null,null,null],"PB25081472":["10",null,null,null,null,null],"PB25081517":[null,null,null,null,null,null],"PB25081520":["10",null,null,null,null,null],"PB25081559":["9.5",null,null,null,null,null],"PB25081568":["10",null,null,null,null,null],"PB25111694":["10",null,null,null,null,null],"PB25512010":["10",null,null,null,null,null],"PB25612039":["10",null,null,null,null,null],"PB25612043":["10",null,null,null,null,null],"PB25612048":["10",null,null,null,null,null],"PB25612049":["10",null,null,null,null,null],"PB25612051":["10",null,null,null,null,null],"PB25612056":["10",null,null,null,null,null],"PB25612061":["10",null,null,null,null,null],"PB25911492":["9.5",null,null,null,null,null],"PL25210001":["10",null,null,null,null,null]},"homework":{"JL25032404":[null,null,null,null,null,null],"JL25032405":[null,null,null,null,null,null],"PB24081557":[null,null,null,null,null,null],"PB24231832":[null,null,null,null,null,null],"PB25000057":[null,null,null,null,null,null],"PB25000160":[null,null,null,null,null,null],"PB25000180":[null,null,null,null,null,null],"PB25000222":[null,null,null,null,null,null],"PB25000233":[null,null,null,null,null,null],"PB25000306":[null,null,null,null,null,null],"PB25000371":[null,null,null,null,null,null],"PB25020518":[null,null,null,null,null,null],"PB25020587":[null,null,null,null,null,null],"PB25020626":[null,null,null,null,null,null],"PB25020647":[null,null,null,null,null,null],"PB25020660":[null,null,null,null,null,null],"PB25020661":[null,null,null,null,null,null],"PB25020674":[null,null,null,null,null,null],"PB25030854":[null,null,null,null,null,null],"PB25030860":[null,null,null,null,null,null],"PB25050871":[null,null,null,null,null,null],"PB25050873":[null,null,null,null,null,null],"PB25050890":[null,null,null,null,null,null],"PB25050895":[null,null,null,null,null,null],"PB25050901":[null,null,null,null,null,null],"PB25050907":[null,null,null,null,null,null],"PB25050909":[null,null,null,null,null,null],"PB25050910":[null,null,null,null,null,null],"PB25050933":[null,null,null,null,null,null],"PB25050936":[null,null,null,null,null,null],"PB25050941":[null,null,null,null,null,null],"PB25050948":[null,null,null,null,null,null],"PB25050949":[null,null,null,null,null,null],"PB25050950":[null,null,null,null,null,null],"PB25050953":[null,null,null,null,null,null],"PB25050955":[null,null,null,null,null,null],"PB25050956":[null,null,null,null,null,null],"PB25050958":[null,null,null,null,null,null],"PB25050959":[null,null,null,null,null,null],"PB25050960":[null,null,null,null,null,null],"PB25050962":[null,null,null,null,null,null],"PB25050963":[null,null,null,null,null,null],"PB25050964":[null,null,null,null,null,null],"PB25050975":[null,null,null,null,null,null],"PB25050976":[null,null,null,null,null,null],"PB25050980":[null,null,null,null,null,null],"PB25050981":[null,null,null,null,null,null],"PB25050984":[null,null,null,null,null,null],"PB25050985":[null,null,null,null,null,null],"PB25050987":[null,null,null,null,null,null],"PB25050988":[null,null,null,null,null,null],"PB25050989":[null,null,null,null,null,null],"PB25050992":[null,null,null,null,null,null],"PB25050993":[null,null,null,null,null,null],"PB25050994":[null,null,null,null,null,null],"PB25050995":[null,null,null,null,null,null],"PB25051001":[null,null,null,null,null,null],"PB25051003":[null,null,null,null,null,null],"PB25051004":[null,null,null,null,null,null],"PB25051006":[null,null,null,null,null,null],"PB25051012":[null,null,null,null,null,null],"PB25051013":[null,null,null,null,null,null],"PB25051014":[null,null,null,null,null,null],"PB25051015":[null,null,null,null,null,null],"PB25051019":[null,null,null,null,null,null],"PB25051023":[null,null,null,null,null,null],"PB25051036":[null,null,null,null,null,null],"PB25051038":[null,null,null,null,null,null],"PB25051040":[null,null,null,null,null,null],"PB25051042":[null,null,null,null,null,null],"PB25051053":[null,null,null,null,null,null],"PB25051059":[null,null,null,null,null,null],"PB25051060":[null,null,null,null,null,null],"PB25051085":[null,null,null,null,null,null],"PB25051091":[null,null,null,null,null,null],"PB25051094":[null,null,null,null,null,null],"PB25051097":[null,null,null,null,null,null],"PB25051098":[null,null,null,null,null,null],"PB25051127":[null,null,null,null,null,null],"PB25051128":[null,null,null,null,null,null],"PB25061171":[null,null,null,null,null,null],"PB25061194":[null,null,null,null,null,null],"PB25061195":[null,null,null,null,null,null],"PB25061205":[null,null,null,null,null,null],"PB25061245":[null,null,null,null,null,null],"PB25061290":[null,null,null,null,null,null],"PB25061295":[null,null,null,null,null,null],"PB25061298":[null,null,null,null,null,null],"PB25061309":[null,null,null,null,null,null],"PB25071352":[null,null,null,null,null,null],"PB25071371":[null,null,null,null,null,null],"PB25071374":[null,null,null,null,null,null],"PB25071412":[null,null,null,null,null,null],"PB25081445":[null,null,null,null,null,null],"PB25081456":[null,null,null,null,null,null],"PB25081457":[null,null,null,null,null,null],"PB25081465":[null,null,null,null,null,null],"PB25081472":[null,null,null,null,null,null],"PB25081517":[null,null,null,null,null,null],"PB25081520":[null,null,null,null,null,null],"PB25081559":[null,null,null,null,null,null],"PB25081568":[null,null,null,null,null,null],"PB25111694":[null,null,null,null,null,null],"PB25512010":[null,null,null,null,null,null],"PB25612039":[null,null,null,null,null,null],"PB25612043":[null,null,null,null,null,null],"PB25612048":[null,null,null,null,null,null],"PB25612049":[null,null,null,null,null,null],"PB25612051":[null,null,null,null,null,null],"PB25612056":[null,null,null,null,null,null],"PB25612061":[null,null,null,null,null,null],"PB25911492":[null,null,null,null,null,null],"PL25210001":[null,null,null,null,null,null]},"updatedAt":"2026-09-13T23:45:00+08:00"};
+</script>
+
+<!-- This remains optional locally, but will preserve your existing star effect on GitHub if the file exists. -->
 <script src="assets/js/particles.js"></script>
+
+<script>
+(() => {
+  /* After deploying the supplied Worker, paste its URL here.
+     Example:
+     const API_URL = "https://stat2002-grades.your-name.workers.dev";
+  */
+  const API_URL = "";
+  const DATA_URL = "grades.json";
+
+  // The 6-digit admin PIN is intentionally NOT stored in this public HTML.
+  // Set the Cloudflare Worker secret ADMIN_PASSWORD to the PIN you chose.
+
+  let gradeData = JSON.parse(JSON.stringify(window.__INITIAL_GRADES__));
+  let adminPassword = "";
+  let pendingKind = null;
+  let activeEditor = null;
+
+  const tables = {
+    quiz: document.getElementById("quizTable"),
+    homework: document.getElementById("homeworkTable")
+  };
+
+  const sheets = {
+    quiz: document.getElementById("quizSheet"),
+    homework: document.getElementById("homeworkSheet")
+  };
+const modal = document.getElementById("passwordModal");
+  const passwordInput = document.getElementById("adminPassword");
+  const passwordStatus = document.getElementById("passwordStatus");
+  const passwordSubmit = document.getElementById("passwordSubmit");
+
+  // PIN field: digits only, maximum six characters.
+  passwordInput.addEventListener("input", () => {
+    passwordInput.value = passwordInput.value.replace(/\D/g, "").slice(0, 6);
+    passwordStatus.textContent = "";
+  });
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, ch => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+    }[ch]));
+  }
+
+  function escapeAttr(s) {
+    return escapeHtml(s);
+  }
+
+  function toast(message, type="ok") {
+    const el = document.getElementById("gradeToast");
+    el.textContent = message;
+    el.classList.toggle("error", type === "error");
+    el.classList.add("show");
+    clearTimeout(toast.timer);
+    toast.timer = setTimeout(() => el.classList.remove("show"), 3300);
+  }
+
+  function apiConfigured() {
+    return /^https:\/\/.+/.test(API_URL);
+  }
+
+  function displayScore(v) {
+    return (v === null || v === undefined || v === "") ? "—" : String(v);
+  }
+
+  function columnsFor(kind) {
+    return kind === "quiz" ? gradeData.quizColumns : gradeData.homeworkColumns;
+  }
+
+  function storeFor(kind) {
+    return gradeData[kind];
+  }
+
+  function render(kind, editing=false) {
+    const table = tables[kind];
+    const cols = columnsFor(kind);
+    const store = storeFor(kind);
+
+    let html = '<thead><tr><th class="student-id-col">STUDENT ID</th>' +
+      cols.map(c => `<th>${escapeHtml(c)}</th>`).join("") +
+      '</tr></thead><tbody>';
+
+    for (const sid of gradeData.students) {
+      const scores = store[sid] || Array(cols.length).fill(null);
+      html += `<tr><td>${escapeHtml(sid)}</td>`;
+
+      for (let i=0; i<cols.length; i++) {
+        const val = scores[i] ?? null;
+
+        if (editing) {
+          html += `<td><input class="grade-input" type="number" min="0" max="10" step="0.5"
+            inputmode="decimal" data-student="${escapeAttr(sid)}" data-index="${i}"
+            value="${val === null ? "" : escapeAttr(String(val))}"
+            aria-label="${escapeAttr(sid + ' ' + cols[i])}"></td>`;
+        } else {
+          html += `<td${val !== null ? ' class="score-cell"' : ''}>${displayScore(val)}</td>`;
+        }
+      }
+
+      html += '</tr>';
+    }
+
+    html += '</tbody>';
+    table.innerHTML = html;
+    sheets[kind].classList.toggle("is-editing", editing);
+  }
+
+  function renderAll() {
+    render("quiz");
+    render("homework");
+  }
+
+  async function refreshFromJsonWhenHosted() {
+    renderAll();
+
+    /* Local file preview cannot reliably fetch a sibling JSON file.
+       On GitHub Pages, load grades.json so the displayed data stays current. */
+    if (location.protocol === "file:") return;
+
+    try {
+      const res = await fetch(`${DATA_URL}?v=${Date.now()}`, { cache: "no-store" });
+      if (!res.ok) return;
+      const remote = await res.json();
+      if (remote && Array.isArray(remote.students)) {
+        gradeData = remote;
+        renderAll();
+      }
+    } catch (err) {
+      console.warn("Using embedded grade snapshot because grades.json could not be loaded.", err);
+    }
+  }
+  function openPassword(kind) {
+    if (!apiConfigured()) {
+      toast("The page style is ready. To enable saving, deploy the Worker and paste its URL into API_URL.", "error");
+      return;
+    }
+
+    if (activeEditor && activeEditor !== kind) {
+      toast("Save or cancel the current table before editing the other one.", "error");
+      return;
+    }
+
+    pendingKind = kind;
+    passwordStatus.textContent = "";
+    passwordInput.value = adminPassword;
+    modal.classList.add("open");
+    setTimeout(() => passwordInput.focus(), 0);
+  }
+
+  function closePassword() {
+    modal.classList.remove("open");
+    pendingKind = null;
+    passwordStatus.textContent = "";
+  }
+
+  async function authenticate(password) {
+    const res = await fetch(`${API_URL.replace(/\/$/,"")}/auth`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password })
+    });
+
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok || !body.ok) {
+      throw new Error(body.error || "Incorrect password or authentication failed.");
+    }
+  }
+
+  function beginEditing(kind) {
+    activeEditor = kind;
+    render(kind, true);
+    document.querySelector(`[data-edit="${kind}"]`).disabled = true;
+    toast(`${kind === "quiz" ? "Quiz" : "Homework"} table unlocked.`);
+  }
+
+  function validateAndCollect(kind) {
+    let ok = true;
+    const store = JSON.parse(JSON.stringify(gradeData[kind]));
+
+    sheets[kind].querySelectorAll(".grade-input").forEach(input => {
+      input.classList.remove("invalid");
+      const raw = input.value.trim();
+      let value = null;
+
+      if (raw !== "") {
+        const n = Number(raw);
+        if (!Number.isFinite(n) || n < 0 || n > 10 || Math.round(n * 2) !== n * 2) {
+          input.classList.add("invalid");
+          ok = false;
+          return;
+        }
+        value = String(n).replace(/\.0$/, "");
+      }
+
+      const sid = input.dataset.student;
+      const idx = Number(input.dataset.index);
+      if (!store[sid]) {
+        store[sid] = Array(columnsFor(kind).length).fill(null);
+      }
+      store[sid][idx] = value;
+    });
+
+    return ok ? store : null;
+  }
+
+  async function save(kind) {
+    if (!adminPassword) {
+      openPassword(kind);
+      return;
+    }
+
+    const collected = validateAndCollect(kind);
+    if (!collected) {
+      toast("Scores must be 0–10 in 0.5-point increments, or blank.", "error");
+      return;
+    }
+
+    const button = document.querySelector(`[data-save="${kind}"]`);
+    const previous = button.innerHTML;
+    button.disabled = true;
+    button.innerHTML = '<i class="bi bi-arrow-repeat"></i> Saving…';
+
+    try {
+      const next = JSON.parse(JSON.stringify(gradeData));
+      next[kind] = collected;
+      next.updatedAt = new Date().toISOString();
+
+      const res = await fetch(`${API_URL.replace(/\/$/,"")}/save`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: adminPassword, grades: next })
+      });
+
+      const body = await res.json().catch(() => ({}));
+
+      if (res.status === 401) {
+        adminPassword = "";
+        throw new Error("Password was rejected. Click Edit and sign in again.");
+      }
+
+      if (!res.ok || !body.ok) {
+        throw new Error(body.error || "Save failed.");
+      }
+
+      gradeData = next;
+      activeEditor = null;
+      render(kind, false);
+      document.querySelector(`[data-edit="${kind}"]`).disabled = false;
+      toast("Saved. GitHub Pages will update after the commit is deployed.");
+    } catch (err) {
+      toast(err.message || "Save failed.", "error");
+    } finally {
+      button.disabled = false;
+      button.innerHTML = previous;
+    }
+  }
+
+  function cancel(kind) {
+    activeEditor = null;
+    render(kind, false);
+    document.querySelector(`[data-edit="${kind}"]`).disabled = false;
+    toast("Changes discarded.");
+  }
+document.querySelectorAll("[data-edit]").forEach(btn =>
+    btn.addEventListener("click", () => openPassword(btn.dataset.edit))
+  );
+
+  document.querySelectorAll("[data-save]").forEach(btn =>
+    btn.addEventListener("click", () => save(btn.dataset.save))
+  );
+
+  document.querySelectorAll("[data-cancel]").forEach(btn =>
+    btn.addEventListener("click", () => cancel(btn.dataset.cancel))
+  );
+
+  document.getElementById("passwordCancel").addEventListener("click", closePassword);
+
+  modal.addEventListener("click", e => {
+    if (e.target === modal) closePassword();
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && modal.classList.contains("open")) closePassword();
+  });
+
+  document.getElementById("passwordForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const password = passwordInput.value;
+    if (!/^\d{6}$/.test(password)) {
+      passwordStatus.textContent = "Please enter exactly 6 digits.";
+      passwordInput.focus();
+      return;
+    }
+
+    passwordSubmit.disabled = true;
+    passwordStatus.textContent = "Checking…";
+
+    try {
+      await authenticate(password);
+      adminPassword = password;
+      const kind = pendingKind;
+      closePassword();
+      beginEditing(kind);
+    } catch (err) {
+      passwordStatus.textContent = err.message || "Authentication failed.";
+      passwordInput.select();
+    } finally {
+      passwordSubmit.disabled = false;
+    }
+  });
+
+  refreshFromJsonWhenHosted();
+})();
+</script>
 </body>
 </html>
