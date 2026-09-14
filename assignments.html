@@ -151,34 +151,98 @@ a:hover {
 
 /* ---------- compact crystal page title ---------- */
 .assignment-title-bar {
+  position: relative;
   width: 100%;
-  padding: 22px 20px 16px;
-  background: #ffffff;
+  padding: 20px 20px 15px;
   text-align: center;
-  border-bottom: 1px solid #eef3f8;
+  border-bottom: 1px solid #e8f3ff;
+  background:
+    radial-gradient(circle at 12% 28%, rgba(255,255,255,.95) 0 1.6px, transparent 2.6px),
+    radial-gradient(circle at 23% 70%, rgba(168,219,255,.85) 0 1.3px, transparent 2.3px),
+    radial-gradient(circle at 35% 40%, rgba(255,255,255,.88) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 49% 22%, rgba(155,221,255,.90) 0 1.4px, transparent 2.4px),
+    radial-gradient(circle at 63% 68%, rgba(255,255,255,.92) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 74% 37%, rgba(174,229,255,.86) 0 1.3px, transparent 2.3px),
+    radial-gradient(circle at 86% 58%, rgba(255,255,255,.94) 0 1.4px, transparent 2.4px),
+    linear-gradient(180deg, #f7fbff 0%, #eef7ff 55%, #f8fcff 100%);
+  overflow: hidden;
+}
+
+.assignment-title-bar::before,
+.assignment-title-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.assignment-title-bar::before {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(127,196,255,.30), transparent 18%),
+    radial-gradient(circle at 79% 32%, rgba(187,232,255,.24), transparent 20%),
+    radial-gradient(circle at 51% 72%, rgba(129,200,255,.18), transparent 18%);
+  animation: crystalFloat 7s ease-in-out infinite alternate;
+}
+
+.assignment-title-bar::after {
+  background:
+    linear-gradient(115deg,
+      transparent 0%,
+      transparent 34%,
+      rgba(255,255,255,.48) 49%,
+      transparent 64%,
+      transparent 100%);
+  transform: translateX(-65%);
+  animation: titleShine 5.5s ease-in-out infinite;
 }
 
 .crystal-title {
+  position: relative;
   display: inline-block;
-  font-size: 27px;
+  z-index: 2;
+  font-size: 29px;
   line-height: 1.15;
-  font-weight: 800;
-  letter-spacing: .12em;
+  font-weight: 900;
+  letter-spacing: .11em;
+  text-transform: uppercase;
   background: linear-gradient(
-    110deg,
-    #6baef8 0%,
-    #a9dcff 26%,
-    #f7fcff 48%,
-    #9fd9ff 70%,
-    #67aaf7 100%
+    180deg,
+    #ffffff 0%,
+    #eefdff 24%,
+    #bfe6ff 55%,
+    #7fc1ff 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   text-shadow:
-    0 1px 0 rgba(255,255,255,.95),
-    0 3px 10px rgba(92,164,233,.18);
-  filter: drop-shadow(0 1px 1px rgba(96,157,211,.14));
+    0 1px 0 rgba(255,255,255,.96),
+    0 0 8px rgba(131,205,255,.28),
+    0 0 16px rgba(82,165,255,.20);
+  filter: drop-shadow(0 2px 6px rgba(96,170,255,.18));
+}
+
+.crystal-title::before {
+  content: "ASSIGNMENT RECORDS";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  color: rgba(72,132,214,.28);
+  transform: translateY(1px);
+  filter: blur(1px);
+}
+
+@keyframes crystalFloat {
+  0% { transform: translateY(0); opacity: .75; }
+  100% { transform: translateY(3px); opacity: 1; }
+}
+
+@keyframes titleShine {
+  0% { transform: translateX(-70%); opacity: 0; }
+  18% { opacity: .0; }
+  38% { opacity: .9; }
+  55% { opacity: .25; }
+  100% { transform: translateX(72%); opacity: 0; }
 }
 
 /* ---------- content ---------- */
@@ -586,8 +650,8 @@ a:hover {
   }
 
   .crystal-title {
-    font-size: 23px;
-    letter-spacing: .10em;
+    font-size: 24px;
+    letter-spacing: .09em;
   }
 
   .page-banner.assignment-banner,
