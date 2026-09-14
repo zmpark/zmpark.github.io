@@ -148,11 +148,44 @@ a:hover {
   line-height: 1.55;
 }
 
+
+/* ---------- compact crystal page title ---------- */
+.assignment-title-bar {
+  width: 100%;
+  padding: 22px 20px 16px;
+  background: #ffffff;
+  text-align: center;
+  border-bottom: 1px solid #eef3f8;
+}
+
+.crystal-title {
+  display: inline-block;
+  font-size: 27px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: .12em;
+  background: linear-gradient(
+    110deg,
+    #6baef8 0%,
+    #a9dcff 26%,
+    #f7fcff 48%,
+    #9fd9ff 70%,
+    #67aaf7 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.95),
+    0 3px 10px rgba(92,164,233,.18);
+  filter: drop-shadow(0 1px 1px rgba(96,157,211,.14));
+}
+
 /* ---------- content ---------- */
 .content-section.assignment-content {
   width: min(1110px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 62px 0 72px;
+  padding: 26px 0 72px;
 }
 
 .back-link {
@@ -547,6 +580,16 @@ a:hover {
 }
 
 @media (max-width: 760px) {
+
+  .assignment-title-bar {
+    padding: 18px 16px 13px;
+  }
+
+  .crystal-title {
+    font-size: 23px;
+    letter-spacing: .10em;
+  }
+
   .page-banner.assignment-banner,
   .page-banner-inner.assignment-banner-inner {
     min-height: 335px;
@@ -578,18 +621,9 @@ a:hover {
 </head>
 <body>
 
-<section class="page-banner assignment-banner">
-  <div class="page-banner-inner assignment-banner-inner">
-    <div class="page-banner-copy">
-      <div class="course-badge-row">
-        <div class="eyebrow">STAT2002.12</div>
-        <div class="eyebrow course-meta-pill">ASSIGNMENT RECORDS</div>
-      </div>
-      <h1>Assignments &amp; Scores</h1>
-      <p>Quiz and homework records are listed by student ID.</p>
-    </div>
-  </div>
-</section>
+<div class="assignment-title-bar">
+  <div class="crystal-title">ASSIGNMENT RECORDS</div>
+</div>
 
 <main class="content-section assignment-content">
   <p class="back-link">
