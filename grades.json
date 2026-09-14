@@ -1520,8 +1520,8 @@
       null
     ],
     "PB25051012": [
-      null,
-      null,
+      "10",
+      "10",
       null,
       null,
       null,
@@ -1544,7 +1544,7 @@
       null
     ],
     "PB25051015": [
-      null,
+      "10",
       null,
       null,
       null,
@@ -1744,8 +1744,8 @@
       null
     ],
     "PB25061309": [
-      null,
-      null,
+      "10",
+      "10",
       null,
       null,
       null,
@@ -1832,8 +1832,8 @@
       null
     ],
     "PB25081520": [
-      null,
-      null,
+      "10",
+      "10",
       null,
       null,
       null,
@@ -1944,5 +1944,5 @@
       null
     ]
   },
-  "updatedAt": "2026-09-13T23:45:00+08:00"
+  "updatedAt": "2026-09-14T10:08:36.049Z"
 }
