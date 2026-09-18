@@ -1286,7 +1286,7 @@
     ],
     "PB25050956": [
       "10",
-      null,
+      "9.5",
       null,
       null,
       null,
@@ -1605,7 +1605,7 @@
       null
     ],
     "PB25051098": [
-      null,
+      "10",
       null,
       null,
       null,
@@ -1893,6 +1893,6 @@
       null
     ]
   },
-  "updatedAt": "2026-09-18T09:05:24.481Z",
+  "updatedAt": "2026-09-18T09:07:14.895Z",
   "dataRevision": "2026-09-16-roster-110-v1"
 }
